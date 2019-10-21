@@ -1,0 +1,25 @@
+{
+  "name": "simple-music-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:watch": "nodemon --watch main.js --exec npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marlonchiu/simple-music-player.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marlonchiu/simple-music-player/issues"
+  },
+  "homepage": "https://github.com/marlonchiu/simple-music-player#readme",
+  "devDependencies": {
+    "electron": "^6.0.10",
+    "nodemon": "^1.19.4"
+  }
+}
