@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <title>Electron 播放器</title>
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link href="https://cdn.bootcss.com/font-awesome/5.10.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
@@ -13,6 +15,18 @@
     <button id="add-music-btn" type="button" class="btn btn-primary btn-lg btn-block mt-4">
       添加歌曲到曲库
     </button>
+    <div id="tracksList" class="mt-4"></div>
+  </div>
+  <!-- 播放器位置 -->
+  <div class="container fixed-bottom bg-white pb-4">
+    <hr />
+    <div class="row my-2" id="player-status"></div>
+    <div class="progress">
+      <div id="palyer-progress" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+        style="width: 0%;">
+        0%
+      </div>
+    </div>
   </div>
   <script>
     require('./index.js')

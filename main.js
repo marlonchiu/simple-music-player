@@ -36,8 +36,13 @@ let mainWindow
 
 app.on('ready', () => {
   mainWindow = new AppWindow({}, './renderer/index.html')
+  // 页面加载完成导入事件
+  mainWindow.webContents.on('did-finish-load', () => {
+    console.log('page did finish load')
+    mainWindow.send('getTracks', myStore.getTracks())
+  })
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
   ipcMain.on('add-music-window', (event, arg) => {
     const addWindow = new AppWindow({
       width: 800,
@@ -65,6 +70,15 @@ app.on('ready', () => {
     // console.log(tracks)
     const updateTracks = myStore.addTracks(tracks).getTracks()
     console.log(updateTracks)
+    // 发送导入事件
+    mainWindow.send('getTracks', updateTracks)
+  })
+
+  // 接收删除音乐事件
+  ipcMain.on('delete-track', (event, id) => {
+    console.log(id)
+    const updateTracks = myStore.deleteTrack(id).getTracks()
+    mainWindow.send('getTracks', updateTracks)
   })
 
   mainWindow.on('closed', function () {
