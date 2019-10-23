@@ -1,11 +1,56 @@
 {
   "name": "simple-music-player",
+  "productName": "simple-music-player",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Minimal Electron Application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "start:watch": "nodemon --watch main.js --exec npm start"
+    "start:watch": "nodemon --watch main.js --exec npm start",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "simpleMusicPlayer",
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "dmg": {
+      "background": "build/appdmg.png",
+      "icon": "build/icon.icns",
+      "iconSize": 100,
+      "contents": [{
+          "x": 380,
+          "y": 280,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 110,
+          "y": 280,
+          "type": "file"
+        }
+      ],
+      "window": {
+        "width": 500,
+        "height": 500
+      }
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": [{
+        "target": "nsis-web",
+        "arch": [
+          "x64",
+          "ia32"
+        ]
+      }],
+      "icon": "build/icon.ico"
+    }
   },
   "repository": {
     "type": "git",
@@ -20,6 +65,7 @@
   "homepage": "https://github.com/marlonchiu/simple-music-player#readme",
   "devDependencies": {
     "electron": "^6.0.10",
+    "electron-builder": "^21.2.0",
     "nodemon": "^1.19.4"
   },
   "dependencies": {

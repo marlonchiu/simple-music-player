@@ -1,5 +1,5 @@
 # Electron开发仿网易云音乐播放器
-
+[Electron 官方文档](https://electronjs.org/)
 [Electron开发仿网易云音乐播放器](https://coding.imooc.com/learn/list/351.html)
 
 [Bootstrap 中文文档](https://v3.bootcss.com/components/)
